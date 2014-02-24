@@ -1,0 +1,302 @@
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" ></script>
+<script type="text/javascript" src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js" ></script>
+<script type="text/javascript">
+$().ready(function() {
+
+	$.validator.addMethod("mondaycheck", function(value,element) {
+			/*alert($('#hoomonon').val());
+			alert($('#hoomonout').val());*/
+			//alert(!$('input[name="hoomonoff"]').is(':checked'));
+
+			if($('#hoomonon').val() == '' && $('#hoomonout').val() == '' && !($('input[name="hoomonoff"]').is(':checked'))) {
+				return false;
+		   } else {
+				return true;
+		   }
+		   //return ($('#hoomonon').val() == '' && $('#hoomonout').val() == '' && !($('input[name="hoomonoff"]').is(':checked')));
+		},"<br>* Choose Monday Timing or Closed"
+	);
+	
+	$.validator.addMethod("mondayincheck", function(value,element) {
+			if($('#hoomonon').val() == '' && $('#hoomonout').val() != '') {
+				return false;
+		   } else {
+				return true;
+		   }
+		},"<br>* Choose Monday Out Time"
+	);
+
+	/*$.validator.addMethod("mondayoutcheck", function(value, element) {
+		   return ($('#hoomonon').val() == '' && $('#hoomonout').val() != '')
+		}, "<br>* Choose Monday Out Time"
+	);*/
+
+	/*$("#signupform").validate({
+		rules: {
+			telephone: {
+				required: function(element) {
+					if ($("#mobile").val().length > 0) {
+						return false;
+					}
+					else {
+						return true;
+					}
+				}
+			},
+			mobile: {
+				required: function(element) {
+					if ($("#telephone").val().length > 0) {
+						return false;
+					}
+					else {
+						return true;
+					}
+
+				}
+			}
+		}
+	});*/
+
+	// validate signup form on keyup and submit
+	$("#postadd").validate({
+		rules: {
+			groups: {
+				hoomonday: "hoomonon hoomonout hoomonoff"
+			},
+			errorPlacement: function(error) {
+				var n = element.attr("name");
+			  if (n == "hoomonon" || n == "hoomonout" || n == "hoomonoff")
+				error.insertAfter("#hoomonoff");
+			  else
+				error.insertAfter(element);				
+			},
+			hoomonon: {
+				/*required : function(element) {
+					//alert($('#hoomonon').val() == '' && $('#hoomonout').val() == '' && $('#hoomonoff:checked') == false);
+					if($('#hoomonon').val() == '' && $('#hoomonout').val() == '' && $('#hoomonoff:checked') == false) {
+						return false;
+					}
+				},*/
+				mondaycheck : true,
+				mondayincheck : true
+			},
+			hoomonout: {
+				//mondaycheck : true
+			},			
+			hoomonoff: {
+				//mondaycheck : true
+			},			
+			hootueon: {
+				required:true
+			},
+			hootueout: {
+				required:true
+			},
+			hoowedon: {
+				required:true
+			},
+			hoowedout: {
+				required:true
+			},
+			hoothuon: {
+				required:true
+			},
+			hoothuout: {
+				required:true
+			},
+			hoofrion: {
+				required:true
+			},
+			hoofriout: {
+				required:true
+			},
+			hoosaton: {
+				required:true
+			},
+			hoosatout: {
+				required:true
+			},
+			hoosunon: {
+				required:true
+			},
+			hoosunout: {
+				required:true
+			}			
+		},		
+		messages: {
+			hoomonon: {
+				required : "<br>* Choose Monday Timing or Closed"
+			},
+			/*hoomonout: {
+				required : "<br>* Choose Monday Out Time"
+			},*/
+			hootueon: {
+				required : "<br>* Required Field"
+			},
+			hootueout: {
+				required : "<br>* Required Field"
+			},
+			hoowedon: {
+				required : "<br>* Required Field"
+			},
+			hoowedout: {
+				required : "<br>* Required Field"
+			},
+			hoothuon: {
+				required : "<br>* Required Field"
+			},
+			hoothuout: {
+				required : "<br>* Required Field"
+			},
+			hoofrion: {
+				required : "<br>* Required Field"
+			},
+			hoofriout: {
+				required : "<br>* Required Field"
+			},
+			hoosaton: {
+				required : "<br>* Required Field"
+			},
+			hoosatout: {
+				required : "<br>* Required Field"
+			},
+			hoosunon: {
+				required : "<br>* Required Field"
+			},
+			hoosunout: {
+				required : "<br>* Required Field"
+			}			
+		}
+	});	
+});
+</script>
+<form id="postadd" name="postadd" method="post" action="" enctype='multipart/form-data' >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="9%" height="30" align="left" valign="middle">Mon : </td>
+                <td width="30%" align="left" valign="middle"><select class="timinput" name="hoomonon" id="hoomonon">
+				<option value=''>--------Time--------</option>
+				  <option value='1:00 AM'>1:00 AM</option>
+				  <option value='1:30 AM'>1:30 AM</option>
+				  <option value='2:00 AM'>2:00 AM</option>
+				  <option value='2:30 AM'>2:30 AM</option>
+                </select> 
+                  - </td>
+                <td width="29%" align="left" valign="middle"><select class="timinput" name="hoomonout" id="hoomonout">
+                <option value=''>--------Time--------</option>
+				<option value='1:00 AM'>1:00 AM</option>
+				  <option value='1:30 AM'>1:30 AM</option>
+				  <option value='2:00 AM'>2:00 AM</option>
+				  <option value='2:30 AM'>2:30 AM</option>
+                </select></td>
+                <td width="32%" height="40" align="left" valign="middle" class="txt"><label>
+                  <input type="checkbox" name="hoomonoff" id="hoomonoff" value="Closed" />
+                </label>
+                  Closed</td>
+              </tr>
+              <tr>
+                <td height="30" align="left" valign="middle">Tue : </td>
+                <td align="left" valign="middle"><select class="timinput" name="hootueon" id="hootueon">
+				<option value=''>--------Time--------</option>
+					<option value='1:00 AM'>1:00 AM</option>
+				  <option value='1:30 AM'>1:30 AM</option>
+				  <option value='2:00 AM'>2:00 AM</option>
+				  <option value='2:30 AM'>2:30 AM</option>                </select> 
+                  - </td>
+                <td align="left" valign="middle"><select class="timinput" name="hootueout" id="hootueout">
+                <option value=''>--------Time--------</option>
+<option value='1:00 AM'>1:00 AM</option>
+				  <option value='1:30 AM'>1:30 AM</option>
+				  <option value='2:00 AM'>2:00 AM</option>
+				  <option value='2:30 AM'>2:30 AM</option>                </select></td>
+                <td height="40" align="left" valign="middle" class="txt"><input type="checkbox" name="hootueoff" id="hootueoff" value="Closed" /> 
+                  Closed </td>
+              </tr>
+              <tr>
+                <td height="30" align="left" valign="middle">Wed : </td>
+                <td align="left" valign="middle"><select class="timinput" name="hoowedon" id="hoowedon">
+                <option value=''>--------Time--------</option>
+				  <option value='1:00 AM'>1:00 AM</option>
+				  <option value='1:30 AM'>1:30 AM</option>
+				  <option value='2:00 AM'>2:00 AM</option>
+				  <option value='2:30 AM'>2:30 AM</option>				  </select></td>
+                <td align="left" valign="middle"><select class="timinput" name="hoowedout" id="hoowedout">
+                <option value=''>--------Time--------</option>
+				  <option value='1:00 AM'>1:00 AM</option>
+				  <option value='1:30 AM'>1:30 AM</option>
+				  <option value='2:00 AM'>2:00 AM</option>
+				  <option value='2:30 AM'>2:30 AM</option>                </select></td>
+                <td height="40" align="left" valign="middle" class="txt"><input type="checkbox" name="hoowedoff" id="hoowedoff" value="Closed" />
+                  Closed </td>
+              </tr>
+              <tr>
+                <td height="30" align="left" valign="middle">Thu : </td>
+                <td align="left" valign="middle"><select class="timinput" name="hoothuon" id="hoothuon">
+                <option value=''>--------Time--------</option>
+				  <option value='1:00 AM'>1:00 AM</option>
+				  <option value='1:30 AM'>1:30 AM</option>
+				  <option value='2:00 AM'>2:00 AM</option>
+				  <option value='2:30 AM'>2:30 AM</option>                </select></td>
+                <td align="left" valign="middle"><select class="timinput" name="hoothuout" id="hoothuout">
+                <option value=''>--------Time--------</option>
+				  <option value='1:00 AM'>1:00 AM</option>
+				  <option value='1:30 AM'>1:30 AM</option>
+				  <option value='2:00 AM'>2:00 AM</option>
+				  <option value='2:30 AM'>2:30 AM</option>                </select></td>
+                <td height="40" align="left" valign="middle" class="txt"><input type="checkbox" name="hoothuoff" id="hoothuoff" value="Closed" />
+                  Closed</td>
+              </tr>
+              <tr>
+                <td height="30" align="left" valign="middle">Fri : </td>
+                <td align="left" valign="middle"><select class="timinput" name="hoofrion" id="hoofrion">
+                <option value=''>--------Time--------</option>
+				  <option value='1:00 AM'>1:00 AM</option>
+				  <option value='1:30 AM'>1:30 AM</option>
+				  <option value='2:00 AM'>2:00 AM</option>
+				  <option value='2:30 AM'>2:30 AM</option>                </select></td>
+                <td align="left" valign="middle"><select class="timinput" name="hoofriout" id="hoofriout">
+                <option value=''>--------Time--------</option>
+				  <option value='1:00 AM'>1:00 AM</option>
+				  <option value='1:30 AM'>1:30 AM</option>
+				  <option value='2:00 AM'>2:00 AM</option>
+				  <option value='2:30 AM'>2:30 AM</option>                </select></td>
+                <td height="40" align="left" valign="middle" class="txt"><input type="checkbox" name="hoofrioff" id="hoofrioff" value="Closed" /> 
+                  Closed </td>
+              </tr>
+              <tr>
+                <td height="30" align="left" valign="middle">Sat : </td>
+                <td align="left" valign="middle"><select class="timinput" name="hoosaton" id="hoosaton">
+                <option value=''>--------Time--------</option>
+				  <option value='1:00 AM'>1:00 AM</option>
+				  <option value='1:30 AM'>1:30 AM</option>
+				  <option value='2:00 AM'>2:00 AM</option>
+				  <option value='2:30 AM'>2:30 AM</option>                </select></td>
+                <td align="left" valign="middle"><select class="timinput" name="hoosatout" id="hoosatout">
+                <option value=''>--------Time--------</option>
+				  <option value='1:00 AM'>1:00 AM</option>
+				  <option value='1:30 AM'>1:30 AM</option>
+				  <option value='2:00 AM'>2:00 AM</option>
+				  <option value='2:30 AM'>2:30 AM</option>                </select></td>
+                <td height="40" align="left" valign="middle" class="txt"><input type="checkbox" name="hoosatoff" id="hoosatoff" value="Closed" />
+                  Closed </td>
+              </tr>
+              <tr>
+                <td height="30" align="left" valign="middle">Sun : </td>
+                <td align="left" valign="middle"><select class="timinput" name="hoosunon" id="hoosunon">
+                <option value=''>--------Time--------</option>
+				  <option value='1:00 AM'>1:00 AM</option>
+				  <option value='1:30 AM'>1:30 AM</option>
+				  <option value='2:00 AM'>2:00 AM</option>
+				  <option value='2:30 AM'>2:30 AM</option>                </select></td>
+                <td align="left" valign="middle"><select class="timinput" name="hoosunout" id="hoosunout">
+                <option value=''>--------Time--------</option>
+				  <option value='1:00 AM'>1:00 AM</option>
+				  <option value='1:30 AM'>1:30 AM</option>
+				  <option value='2:00 AM'>2:00 AM</option>
+				  <option value='2:30 AM'>2:30 AM</option>                </select></td>
+                <td height="40" align="left" valign="middle" class="txt"><input type="checkbox" name="hoosunoff" id="hoosunoff" value="Closed" />
+                Closed</td>
+              </tr>
+            </table>
+			<input type="submit" name="postingadd" value="Post Ad" />
+			</form>

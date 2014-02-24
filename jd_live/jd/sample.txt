@@ -1,0 +1,125 @@
+JQuery validation rules – how to make a required field dependent on whether a checkbox is checked
+Posted on: November 10th, 2012 by taff No Comments
+
+Adding jQuery validation rules is one of the things that makes it my choice for client-side validation. There are lots of rules built into the plugin out of the box and you can add a new validation rule method easily. Occasionally however, whether a field is required, is dependent upon either the value of another field element, if a particular radio button or dropdown entry is selected or a checkbox is checked. For example an address may only be required if the send me the newsletter by post checkbox has been checked.
+jQuery validation rules - depends
+
+Fortunately the jQuery validation plugin allows for such occurences. To make a field only required if another field meets a certain criteria we use "depends" in the following way:
+?1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13	rules: {
+address: {
+required: {
+depends: function(element) {
+if ($('#newsletterByPost').is(':checked')){
+return true;
+}else{
+return false;
+}
+}
+}
+}
+}
+
+
+As you can see we have our rules object which has the rule for the address field. required:true is how we do it to make the field always required. For a depends rule we simply add a depends which contains a conditional to find out if the checkbox has been checked. This is just a short example of how jQuery Validation rules work in conjunction with depends. There is literally no limit to the number of fields that are checked, you just need to make sure the returned value of the function returns a boolean value i.e. true or false.
+
+If you find this post interesting, the following tags may also be worth a look at: depends, required, validate
+
+if (!$('input[name="checkbox[]"]').is(':checked')) {
+    $("#error").fadeIn().text("You must check at least one option.");
+
+    return false;
+}
+
+
+
+jQuery form validation: How to display one error message for multiple fields
+
+A useful jQuery form validation tip for displaying a single error message for multiple fields.
+The jQuery plugin is fantastic, its great for DOM manipulation (checkout Visual jQuery for this) and the user base is immense.  jQuery has so many useful plugins such as the form validator plugin, this article shows an example scenario of where this plugin can be used. 
+
+The form validator plugin makes validating a form very simple. I have often found that displaying a single error message for multiple fields can be a little tricky. An example will be followed throughout this post showing one way (it may not be the best!) of achieving this.
+
+I have 2 fields on my login form and I want an error message displayed when either field is empty and the login submit button is pressed. To validate input fields we include class=”required” to each of the input elements and bind the validate() method to the form on  document.ready as follows: -
+$(document).ready(function()
+{
+  $("#myForm").validate();
+}
+);
+
+Or we could omit the input element classes and expand on the document.ready function with the following: -
+$(document).ready(function()
+{
+ $("#myForm").validate
+ (
+     {
+         errorElement : "label",
+         errorClass   : "error",
+         rules:
+         {
+             username : {required: true},
+             password : {required: true}
+         }
+     }
+ );
+});
+
+A screenshot of a sample login form is shown below aswell as the ‘after’ image of what is returned when attempting to login without filling in the input details. There are two error messages displayed after each input field telling the user that ‘This field is required’, the input validation has worked successfully and sufficient detail is provided to the user telling them how to correct the issue. However showing two messages on a small form like this is overkill, displaying a single generic message would be more suitable and will help reduce clutter within the form.
+
+
+
+
+
+The way I have chosen display a single error message is by adding a new jQuery validator method to validate a single field based on the result of the method. So the first thing to do is to create the validator method : -
+jQuery.validator.addMethod
+(
+"invalidLoginDetails",
+function(value)
+{
+ var username = $("#username").val();
+ var password = $("#password").val();
+ var isValidLogin = true;
+
+ if ((username.length == 0) || (password.length == 0))
+ {
+     isValidLogin = false;
+ }
+
+ return isValidLogin;
+
+},
+"Please fill in all login details"
+);
+
+The name of my validator method is “invalidLoginDetails“. The first thing done in the method is to retrieve the values in the username and password input fields and store them into variables, this isn’t really needed but it makes the code look a little tidier. Next, a simple ‘If’ statement is added to determine whether either field has a value by checking the length of each field value. The last thing to include is a custom error message to display when the form fails to validate.
+
+A change must be done to the form bind function on document.ready to include the following: -
+$(document).ready(function()
+{
+  $("#myForm").validate
+  ({
+        errorElement : "label",
+        errorClass   : "error",
+        rules:
+        {
+            password : {invalidLoginDetails: true}
+        }
+  });
+});
+
+The ‘rules’ section has been updated so that the password field will be validated using the custom validator method we just created. Now when the form fails to validate because either the username or password field is empty a single error message relating to both fields will be shown after the password input field : -
+
+
+
+As mentioned before, this is just one way of validating multiple fields and displaying a single error message for them.

@@ -1,0 +1,51 @@
+.confirmMessage {
+	margin:0 auto;
+	display:none;
+	/*background:#3D85C2;*/
+	background:#FFFFFF;
+	color:#fff;
+	width:580px;
+    position: fixed;
+    top: 50px;
+    left: 250px;
+	height:365px;
+	border:1px solid #EEEEEE;
+	z-index:2;
+	-moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -khtml-border-radius: 2px;
+    border-radius: 2px;
+}
+
+#backgroundChatPopup{
+display:none;
+position:fixed;
+_position:absolute; /* hack for internet explorer 6*/
+height:100%;
+width:100%;
+top:0;
+left:0;
+background:#000000;
+border:1px solid #cecece;
+z-index:1;
+}
+
+.closepbox { float:right; }
+
+.closexbox { padding-left:222px; }
+
+a.closelink { text-decoration:none; }
+
+a.closelink:hover { cursor:hand; text-decoration:underline; }
+
+.addcolor {
+	color:#3D77B1;
+}
+
+.leftpadd {
+	padding-left:40px;
+}
+
+.redcolor {
+	color:#FC2F36;
+}

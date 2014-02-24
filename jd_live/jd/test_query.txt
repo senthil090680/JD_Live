@@ -1,0 +1,11 @@
+CREATE TABLE post_info (post_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, countryname VARCHAR(50), 
+companyname VARCHAR(200), stradd TEXT, citytown VARCHAR(50), postalcode VARCHAR(10), 
+mainphone VARCHAR(15), mobilephone VARCHAR(15), emailadd VARCHAR(25), websitename TEXT, descrip TEXT, 
+categ VARCHAR(100), servicearea VARCHAR(10), hoomonon VARCHAR(10), hoomonout VARCHAR(10), 
+hoomonoff VARCHAR(5), hootueon VARCHAR(10), hootueout VARCHAR(10), hootueoff VARCHAR(5), 
+hoowedon VARCHAR(10), hoowedout VARCHAR(10), hoowedoff VARCHAR(5), hoothuon VARCHAR(10), 
+hoothuout VARCHAR(10), hoothuoff VARCHAR(5), hoofrion VARCHAR(10), hoofriout VARCHAR(10), 
+hoofrioff VARCHAR(5), hoosaton VARCHAR(10), hoosatout VARCHAR(10), hoosatoff VARCHAR(5), 
+hoosunon VARCHAR(10), hoosunout VARCHAR(10), hoosunoff VARCHAR(5), paymentoptions TEXT, photopath1 TEXT, 
+photopath2 TEXT, photopath3 TEXT, videopath1 TEXT, tags TEXT, poststatus INT,insertedDate DATETIME,
+modifiedDate DATETIME)

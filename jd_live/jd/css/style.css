@@ -1,0 +1,230 @@
+.nounderline { 
+	text-decoration:none;
+}
+
+.msgdisplay {
+	color: #FF0000;
+	background-color: f8f8f8;
+}
+.noresult {
+	color: #FF0000;
+}
+body {
+	background-attachment: scroll;
+	background-color: f8f8f8;
+	background-repeat: repeat;
+	background-position: left top;
+	margin: 25px;
+	padding: 25px;
+}
+.bgline {
+	background-attachment: scroll;
+	background-image: url(../images/bgline.png);
+	background-repeat: repeat-y;
+	background-position: center top;
+}
+.input{ border: 1px solid #cfdede; padding:5px 12px; font-size:12px; color:#333; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; -o-border-radius: 3px; width: 461px; background-color:#FFFFFF; color: #777777;}
+	
+.input:focus{ outline: none; border: 1px solid #649d9d;}	
+
+.inputs{ border: 1px solid #cfdede; padding:5px 12px; font-size:12px; color:#333; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; -o-border-radius: 3px; width: 150px; background-color:#FFFFFF; color: #777777;}
+	
+.inputs:focus{ outline: none; border: 1px solid #649d9d;}
+.inputs.error { border: 1px solid red; }
+
+
+
+.inputst{ border: 1px solid #cfdede; padding:5px 12px; font-size:12px; color:#333; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; -o-border-radius: 3px; width: 155px; background-color:#FFFFFF; color: #777777;}
+	
+.inputst:focus{ outline: none; border: 1px solid #649d9d;}
+.inputst.error { border: 1px solid red; }
+
+
+.txt {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	color: #000;
+	line-height:18px;
+	text-decoration: none;
+}
+.copyr {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: normal;
+	color: #000;
+	line-height:18px;
+	text-decoration: none;
+}
+
+.titxt {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #333333;
+	text-decoration: none;
+}
+
+.titxt a {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #333333;
+	text-decoration: none;
+}
+
+.titxt a:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FF0000;
+	text-decoration: none;
+}
+
+
+
+
+.fpinput{ border: 1px solid #cfdede; padding:5px 12px; font-size:12px; color:#333; border-radius: 1px; -moz-border-radius: 1px; -webkit-border-radius: 1px; -o-border-radius: 1px; width: 260px; background-color:#FFFFFF; color: #777777;}
+	
+.fpinput:focus{ outline: none; border: 1px solid #649d9d;}
+.fpinput.error { border: 1px solid red; }
+
+.fpsinput{ border: 1px solid #cfdede; padding:5px 12px; font-size:12px; color:#333; border-radius: 1px; -moz-border-radius: 1px; -webkit-border-radius: 1px; -o-border-radius: 1px; width: 235px; background-color:#FFFFFF; color: #777777;}
+	
+.fpsinput:focus{ outline: none; border: 1px solid #649d9d;}	
+.fpsinput.error { border: 1px solid red; }
+
+.pfinputs{ border: 1px solid #cfdede; padding:5px 12px; font-size:12px; color:#333; border-radius: 1px; -moz-border-radius: 1px; -webkit-border-radius: 1px; -o-border-radius: 1px; width: 235px; background-color:#FFFFFF; color: #777777;}
+	
+.fpinputs:focus{ outline: none; border: 1px solid #649d9d;}
+
+
+
+.timinput{ border: 1px solid #cfdede; padding:5px 5px; font-size:12px; color:#333; border-radius: 1px; -moz-border-radius: 1px; -webkit-border-radius: 1px; -o-border-radius: 1px; width: 125px; background-color:#FFFFFF; color: #777777;}
+	
+.timinput:focus{ outline: none; border: 1px solid #649d9d;}	
+.timinput.error { border: 1px solid red; }
+
+form.cmxform label.error, label.error {
+	/* remove the next line when you have trouble in IE6 with labels in list */
+	color: red;
+	font-style: italic
+}
+
+.dbg
+{
+  background-color: #fdfdfd;
+    border: 1px solid #f97b00;
+    border-radius: 5px 5px 5px 5px;
+ /*   box-shadow: 1px 1px 1px #888888;*/
+    float: left;
+    padding: 14px;
+    text-decoration: none;
+   /*  width: 650px; */
+	width: 300px;
+	}
+#divbg
+{
+  background-color: #f2f2f2;
+    border: 1px solid #dddcdc;
+    float: left;
+    padding: 14px;
+    text-decoration: none;
+    width: 620px;
+	}
+.line1 {
+	background-attachment: scroll;
+	background-image: url(../images/line1.png);
+	background-repeat: repeat-x;
+	background-position: left bottom;
+}
+	
+	.stxt {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+}
+
+
+/*------------------------------------------------------------------*/
+
+
+.container {width: 670px; margin: 0px auto;}
+ul.tabs {
+	margin: 0;
+	padding: 0;
+	float: left;
+	list-style: none;
+	height: 32px;
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #999;
+	width: 100%;
+}
+ul.tabs li {
+	float: left;
+	margin: 0;
+	padding: 0;
+	height: 31px;
+	line-height: 31px;
+	border: 1px solid #999;
+	border-left: none;
+	margin-bottom: -1px;
+	background: #f2f2f2;
+	overflow: hidden;
+	position: relative;
+}
+ul.tabs li a {
+	text-decoration: none;
+	color: #000;
+	display: block;
+	font-size:14px;
+	padding: 0 20px;
+	border: 1px solid #fff;
+	outline: none;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	width:91px;
+}
+ul.tabs li a:hover {
+	background: #ccc;
+}	
+html ul.tabs li.active, html ul.tabs li.active a:hover  {
+	background: #fff;
+	border-bottom: 1px solid #fff;
+}
+.tab_container {
+	border: 1px solid #999;
+	border-top: none;
+	clear: both;
+	float: left; 
+	width: 100%;
+	background: #fff;
+	-moz-border-radius-bottomright: 5px;
+	-khtml-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-khtml-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+}
+.tab_content {
+	padding: 20px;
+	font-size: 1.2em;
+}
+.tab_content h2 {
+	font-weight: normal;
+	padding-bottom: 10px;
+	border-bottom: 1px dashed #ddd;
+	font-size: 1.8em;
+}
+.tab_content h3 a{
+	color: #254588;
+}
+.tab_content img {
+	float: left;
+	margin: 0 20px 20px 0;
+	border: 1px solid #ddd;
+	padding: 5px;
+}

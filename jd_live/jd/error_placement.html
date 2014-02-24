@@ -1,0 +1,42 @@
+<html>
+<head>
+<script src="js/jqueryn.js" type="text/javascript"></script>
+<script src="js/jquery.validate.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function() {    
+      $("#feedback").validate({
+                errorPlacement: function(error, element) {
+                    if(element.hasClass('custom_error')) {
+						//error.insertAfter(element.siblings("label"));	
+						$('#nameError').html(error);
+					} else {
+
+					}
+                }
+            });
+});
+
+</script>
+</head>
+<form action="index.php#contact" method="post" id="feedback">
+        <p class="first">
+          <label for="name">Name: </label><br />
+          <input id="name" name="name" type="text" class="required custom_error" maxlength="64" /><span id="nameError"></span>
+        </p>
+        <p>
+          <label for="email">Email: </label><br />
+          <input id="email" name="email" type="email" class="required email custom_error" maxlength="254" />
+        </p>
+        <p>
+          <label for="subject">Subject: </label><br />
+          <input id="subject" name="subject" type="text" class="required custom_error" maxlength="128" />
+        </p>
+        <p>
+          <label for="message">Message: </label><br />
+          <textarea id="message" name="message" class="required custom_error" maxlength="1024"></textarea>
+        </p>
+        <button type="submit" name="send" />Send Message</button>
+      </form>
+
+
+</html>
